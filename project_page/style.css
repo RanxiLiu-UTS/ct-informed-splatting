@@ -228,16 +228,65 @@ footer {
 
 .hero-cover-desktop {
     background-color: #000000;
-    background-image: url("https://chen-geng.com/rose4d/static/videos/teaser.png");
+    background-image: none !important;
     background-size: cover;
     color: #fff;
 }
 
 .hero-cover-touch {
     background-color: #000000;
-    background-image: url("https://chen-geng.com/rose4d/static/videos/teaser-mobile.png");
+    background-image: none !important;
     background-size: cover;
     color: #fff;
+}
+
+/* Mobile-specific adjustments to prevent excessively tall cover */
+@media (max-width: 768px) {
+    /* Tighten spacing inside mobile cover */
+    #cover-mobile .hero-body {
+        padding-top: 4vh !important;
+        padding-bottom: 10vh !important; /* leaves room for fixed bottom menu */
+    }
+
+    /* Reduce title size on mobile */
+    #cover-mobile h1.title {
+        font-size: 1.8rem !important;
+        line-height: 1.15 !important;
+    }
+
+    /* Smaller subtitle */
+    #cover-mobile h1.subtitle {
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Compact authors line */
+    #cover-mobile h1.is-2.myfont {
+        font-size: 0.8rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Show affiliations on mobile, compactly */
+    #cover-mobile h1.is-5.myfont {
+        display: block !important;
+        font-size: 0.65rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Slightly smaller superscripts for readability */
+    #cover-mobile h1.is-5.myfont sup {
+        font-size: 0.6em;
+    }
+
+    /* Add spacing between video and authors block */
+    #cover-mobile .hero-body:last-of-type {
+        margin-top: 20vh !important;
+    }
+
+    /* Add spacing under the video block */
+    #cover-mobile .hero-video {
+        margin-bottom: 2vh;
+    }
 }
 
 .column-my {
@@ -268,15 +317,14 @@ html,
 body {
     margin: 0;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     font-family: 'Linux Biolium', sans-serif;
 }
 
 .scroll-container {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    height: auto;
+    overflow: visible;
 }
 
 /**

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.guangzhaohe.com/canor/# -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <meta name="description" content="BridgeSplat">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="BridgeSplat, 4D Gaussian Splatting, Surgical Navigation, Visceral Surgery, Deformable Registration">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    BridgeSplat: Bidirectionally Coupled CT and Non-rigid Gaussian Splatting for Deformable Intraoperative Surgical Navigation
+  </title>
+
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+
+  <link rel="icon" href="./project_page/chart-bubble.svg" type="image/svg+xml">
+
+  <link href="./project_page/css" rel="stylesheet">
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet" /> -->
+  <link href="./project_page/tabler-icons-outline.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./project_page/bulma.min.css">
+  <link rel="stylesheet" href="./project_page/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./project_page/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./project_page/index.css">
+  <link rel="stylesheet" href="./project_page/jquery-ui.css">
+  <link rel="stylesheet" href="./project_page/style.css">
+
+  <script src="./project_page/bulma-carousel.min.js"></script>
+  <script src="./project_page/bulma-slider.min.js"></script>
+  <script src="./project_page/index.js"></script>
+  <script src="./project_page/select.js"></script>
+  <script src="./project_page/jquery-3.7.1.min.js"></script>
+  <script src="./project_page/jquery-ui.min.js"></script>
+  
+  <!-- import { unzipSync, strFromU8 } from 'https://cdn.jsdelivr.net/npm/fflate@0.8.1/esm/index.js'; -->
+  <script type="module" src="./project_page/index(1).js"></script>
+
+  <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@latest/dist/model-viewer.js"></script> -->
+  <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
+  <!-- <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script> -->
+  <script type="module" src="./project_page/model-viewer.min.js"></script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1254.0" data-gr-ext-installed="">
+
+  <div class="scroll-container">
+
+    <div class="section-nav">
+      <!-- TODO: fix this!-->
+      <a href="#cover" class="dot active" title="Cover"></a>
+      <a href="#intro" class="dot" title="Introduction"></a>
+      <a href="#method" class="dot" title="Method"></a>
+      <a href="#results" class="dot" title="Results"></a>
+      <a href="#miscellaneous" class="dot" title="Miscellaneous"></a>
+    </div>
+
+    <!-- For PC and desktop devices -->
+    <!-- <section class="hero hero-cover-desktop is-link is-hidden-touch is-fullheight video" style="overflow: hidden; position:relative;" id="cover"> -->
+    <!-- <div class="section hero is-link is-fullheight video" style="overflow: hidden; position:relative;" id="cover"> -->
+    <div class="section hero is-link is-fullheight video" style="overflow: hidden; position:relative; background-color: black;" id="cover">
+    <!-- <div class="section hero  is-link is-fullheight video" style="overflow: hidden; position:relative; padding-top: 30vh;" id="cover"> -->
+      <!-- Teaser video -->
+      <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%;min-height: 56.25vw; background-color: black; left: unset; right: unset; display: unset; opacity: 0.5;">
+      <!-- <div class="hero-video" style="height: 100%; min_width: 100%; min_height: 100%; background-color: black; left: unset; right: unset; display: unset;"> -->
+        <video playsinline="" autoplay="" muted="" loop="">
+          <!-- <source src="assets/videos/teaser_video_fade.mp4" type="video/mp4"> -->
+          <source src="project_page/interaction_ct.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="overlay"></div>
+
+      <div id="top-bar" class="hero-head is-hidden-touch" style="position: fixed; top: 0px; right: 0px; z-index: 1000; opacity: 1; pointer-events: auto; transition: opacity 0.3s;">
+        <header class="navbar is-hidden-touch">
+          <div class="container is-size-5" style="margin-right:10px;">
+            <div class="navbar-menu">
+              <div class="navbar-end">
+
+                <a class="navbar-item pl-4 pr-4" href="https://papers.miccai.org/miccai-2025/paper/4699_paper.pdf" style="font-size: 1.4vw;">
+                  <!--- TODO: add the icons again later --->
+                  <!-- <i class="ti ti-file" style="margin-right: 0.3vw;"></i> -->
+                  <span class="myfont">Paper</span>
+                </a>
+
+                <!-- <a class="navbar-item pl-4 pr-4" href="https://arxiv.org/abs/2505.20283v1" style="font-size: 1.4vw;">
+                  <i class="ti ti-link" style="margin-right: 0.3vw;"></i>
+                  <span class="myfont">arXiv</span>
+                </a> -->
+
+                <!-- point to current website, code is not available yet-->
+                <a class="navbar-item pl-4 pr-4" href="#" style="font-size: 1.4vw;">
+                  <!--- TODO: add the icons again later --->
+                  <!-- <i class="ti ti-code" style="margin-right: 0.3vw;;"></i> -->
+                  <span class="myfont">Code (Coming soon)</span>
+                </a>
+
+                <!-- point to current website, data is not available yet-->
+                <a class="navbar-item pl-4 pr-4" href="#" style="font-size: 1.4vw;">
+                  <!--- TODO: add the icons again later --->
+                  <!-- <i class="ti ti-code" style="margin-right: 0.3vw;;"></i> -->
+                  <span class="myfont">Data (Coming soon)</span>
+                </a>
+
+                <!-- <a class="navbar-item pl-4 pr-4" href="https://www.guangzhaohe.com/canor/assets/videos/teaser_video_slide.mp4" style="font-size: 1.4vw;">
+                  <i class="ti ti-video" style="margin-right: 0.3vw;"></i>
+                  <span class="myfont">Video</span>
+                </a> -->
+
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!--  Hero content: will be in the middle -->
+      <div class="hero-body" style="max-width: 100%; width: 100%;">
+        <div class="container has-text-centered" style="max-width: 100%; width: 100%;">
+          <!-- <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 7vw; line-height: 1.1;">
+            <i id="changing-icon" class="myfont"></i>
+            <span style="
+              background: linear-gradient(90deg, #ff6ec4, #7873f5);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              display: inline-block;
+              padding-bottom: 0.1em;
+              white-space: nowrap;">
+              Category-Agnostic
+            </span><br>
+            <span style="white-space: nowrap;">Neural Object Rigging</span>
+          </h1> -->
+          
+          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 7vw; line-height: 1.1; text-align: center; width: 100%; max-width: 100%;">
+            <div style="display: inline-block;">
+              <span style="
+                background: linear-gradient(90deg, #ff6ec4, #7873f5);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;
+                font-size: 0.75em;
+                padding-bottom: 0.1em;">
+                BridgeSplat:
+              </span><br>
+              <span style="font-size: 0.5em;">Bidirectionally Coupled CT and Non-rigid Gaussian Splatting for Deformable Intraoperative Surgical Navigation</span>
+            </div>
+          </h1>
+
+          <h1 class="subtitle is-1 is-size-4-mobile publication-title myfont" style="padding-top: 5vh; font-size: 2.5vw;">
+            MICCAI 2025
+          </h1>
+          <h1 class="is-2 is-size-4-mobile" style="font-size: 1.5vw; opacity: 100%;">
+            <span class="myfont">
+              <a href="https://scholar.google.com/citations?user=YHRYsjAAAAAJ&hl=en">Maximilian Fehrentz<sup class="is-size-6-mobile">1,2</sup></a>, 
+            </span> 
+            <span class="myfont">
+              <a href="https://scholar.google.com/citations?user=2F3RgYQAAAAJ&hl=en">Alexander Winkler<sup class="is-size-6-mobile">2</sup></a>, 
+            </span> 
+            <span class="myfont">
+              <a href="https://www.researchgate.net/profile/Thomas_Heiliger">Thomas Heiliger<sup class="is-size-6-mobile">2</sup></a>, 
+            </span>
+            <span class="myfont">
+              <a href="https://haouchine.com/">Nazim Haouchine<sup class="is-size-6-mobile">3</sup></a>,
+            </span>
+            <span class="myfont">
+              <a href="https://scholar.google.com/citations?user=VMdsd2cAAAAJ&hl=en">Christian Heiliger<sup class="is-size-6-mobile">2</sup></a>,
+            </span>
+            <span class="myfont">
+              <a href="https://scholar.google.com/citations?user=kzoVUPYAAAAJ&hl=en">Nassir Navab<sup class="is-size-6-mobile">1</sup></a>
+            </span>
+          </h1>
+          <h1 class="is-5 is-size-5-mobile myfont" style="font-size: 1vw; opacity: 100%;">
+            <sup class="is-size-6-mobile">1</sup>Computer Aided Medical Procedures, TU Munich, Munich, Germany, <br>
+            <sup class="is-size-6-mobile">2</sup>Department of General, Visceral, and Transplantation Surgery, Hospital of the LMU Munich, Ludwig-Maximilians-Universität (LMU), Munich, Germany, <br>
+            <sup class="is-size-6-mobile">3</sup>Harvard Medical School, Brigham and Women's Hospital, Boston, MA, USA
+          </h1>
+        </div>
+      </div>
+
+      <!-- Hero footer: will stick at the bottom -->
+      <!-- <div class="hero-foot is-hidden-mobile myfont" style="bottom: 0;">
+        <nav class="tabs is-boxed is-fullwidth is-size-5">
+          <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#inter">Interactive Results</a></li>
+            <li><a href="#clay">"Clay-Monster"</a></li>
+            <li><a href="#approach">Approach</a></li>
+          </ul>
+        </nav>
+      </div> -->
+
+      <div id="menu-footer" class="hero-foot is-hidden-mobile myfont" style="position: fixed; bottom: 0px; left: 0px; width: 100%; z-index: 10; opacity: 1; pointer-events: auto; transition: opacity 0.3s;">
+        <nav class="tabs is-boxed is-fullwidth is-size-5" style="font-size: 2vw">
+          <ul>
+            <li><a href="#cover">Cover</a></li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#method">Method</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#miscellaneous">Miscellaneous</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+
+    <!-- For mobile devices -->
+    <!-- <div class="section hero hero-cover-touch is-hidden-desktop is-link is-fullheight video" style="overflow: hidden; position:relative;">
+
+      <div class="hero-video is-inline-block-mobile"
+      style="height: 172.28571428vw; width: 100%; min-width: 100%;min-height: 56.25vw;">
+        <video playsinline autoplay muted loop>
+          <source src="https://chen-geng.com/rose4d/static/videos/teaser-mobile-small.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 7rem;">
+            Category-Agnostic <br> Neural Object Rigging
+          </h1>
+          <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 2rem;">
+            CVPR 2025
+          </h1>
+          <h1 class="is-2 is-size-4-mobile" style="font-size: 2rem; opacity: 100%;">
+            <span>
+              <a href="https://guangzhaohe.com">Guangzhao He</a>
+              <sup>1*</sup>
+            </span>,
+            <span>
+              <a href="https://chen-geng.com">Chen Geng</a>
+              <sup>1*</sup>
+            </span>,
+            <span>
+              <a href="https://elliottwu.com/">Shangzhe Wu</a>
+              <sup>2</sup>
+            </span>,
+            <span>
+              <a href="https://www.jiajunwu.com">Jiajun Wu</a>
+              <sup>1</sup>
+            </span>
+          </h1>
+          <h1 class="is-2 is-size-4-mobile" style="font-size: 2rem; opacity: 100%;">
+            Stanford University, University of Cambridge
+          </h1>
+          <h1 class="is-2 is-size-4-mobile" style="font-size: 2rem; opacity: 100%;">
+            (* denotes equal contribution)
+          </h1>
+        </div>
+      </div>
+
+      </div>
+
+    </div> -->
+
+    <!-- </div> -->
+
+    <!-- Intro -->
+    <div class="section is-medium myfont" id="intro">
+      <!-- Title -->
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
+        <div class="container">
+          <h1 class="title is-size-1-mobile text-white" style="font-size: 3vw;">
+            Introduction
+          </h1>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="content is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+        Currently, there are no (deformable) navigation systems for visceral surgery. Rigid registration is not sufficient for navigation in highly non-rigid scenes. Therefore, we introduce a method using an initial rigid registration and intraoperative monocular laparoscopic video to deform a preoperative CT during surgery.
+        <!-- In this work, we study the problem of modeling and understanding the <strong style="color: rgb(60, 218, 189); font-weight: bold;">structure of motion</strong> for <strong style="color: rgb(60, 218, 189); font-weight: bold;">arbitrary categories</strong> of deformable objects without prior knowledge. 
+        Due to the inherent low-dimensionality of motion structures, we learn to discover a low-dimensional pose space for dynamic objects by encoding them into a set of blobs. 
+        This representation captures interpretable structures for a diverse range of object categories, enabling intuitive object pose manipulation through explicit blob editing.  -->
+      </div>
+
+      <div style="text-align: center; margin-top: 0vh;">
+        <img src="./project_page/MICCAI 25 Bridgesplat.png" alt="Method Image" style="max-width: 80%; height: auto; filter: brightness(90%);">
+      </div>
+    </div>
+
+   
+
+    <!-- Method -->
+    <div class="section is-medium myfont" id="method">
+      <!-- Title -->
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
+        <div class="container">
+          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: 3vw;">
+            Method
+          </h1>
+        </div>
+      </div>
+
+      <br>
+      <div class="content is-6 is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+        We initialize 3D Gaussians by rigging them onto the registered mesh, extracted from the preoperative CT. Given the first camera pose, we identify the visible Gaussians, derive the visible vertices, and subsample them to initialize a sparse deformation field. For all consecutive frames, we optimize for the mesh vertices, the deformation vectors, and the appearance properties of the 3D Gaussians. Deformations are propagated to the CT.
+      </div>
+
+      <div style="text-align: center; margin-top: 0vh;">
+        <img src="./project_page/miccai25_pipeline.png" alt="Method Overview Image" style="max-width: 80%; height: auto; filter: brightness(90%);">
+      </div>
+    </div>
+
+
+    <!-- Results -->
+    <div class="section is-medium myfont" id="results">
+      <!-- Title -->
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
+        <div class="container">
+          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: 3vw;">
+            Results
+          </h1>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="content is-6 is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+        Top left is the monocular input video from the laparoscope, top right are the 4D Gaussians. Bottom shows the deforming CT.
+      </div>
+
+      <!-- Insert mp4 video here-->
+      <div style="text-align: center; margin-top: 0vh;">
+        <video src="./project_page/input+splat+ct_clinical.mp4" controls autoplay muted loop style="max-width: 40%; height: auto; filter: brightness(90%);">
+        </video>
+      </div>
+      
+      <!-- <div class="content is-6 is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+        Sensible deformations on a simulated tool-liver interaction. Left is the simulated sequence, right is the underlying 3D mesh, deforming to fit its rigged 4D Gaussians to the monocular video.
+      </div> -->
+
+      <!-- Insert mp4 video here-->
+      <!-- <div style="text-align: center; margin-top: 0vh;">
+        <video src="./project_page/input+meshdef_simulated.mp4" controls autoplay muted loop style="max-width: 80%; height: auto; filter: brightness(90%);">
+        </video>
+      </div> -->
+
+    </div>
+
+
+
+    <div class="section is-medium myfont" id="miscellaneous">
+      <!-- Title -->
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
+        <div class="container">
+          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: 3vw;">
+            Miscellaneous
+          </h1>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
+      <div class="container">
+        <h1 class="title is-1 is-hidden-touch text-white width: 90%;" style="font-size: 3vh;">
+          Bibtex
+        </h1>
+      </div>
+    </div>
+
+    <br>
+
+    <div style="width: 80%; display: flex; flex-direction: column; align-items: center;">
+      <div class="columns is-centered is-hidden-touch">
+        <div class="content" style="margin-top: 10pt; width: 100%;">
+          <div style="
+            border-radius: 12px;
+            background-color: #1e1e1e;
+            padding: 5px;
+            overflow-x: auto;
+            width: 100%;
+          ">
+            <pre class="" style="
+              margin: 0;
+              background: transparent;
+              border-radius: 12px;
+            "><code style="color: #e0e0e0; background: transparent;">@inproceedings{fehrentz2025bridgesplat,
+  title={BridgeSplat: Bidirectionally Coupled CT and Non-rigid Gaussian Splatting for Deformable Intraoperative Surgical Navigation},
+  author={Fehrentz, Maximilian and Winkler, Alexander and Heiliger, Thomas and Haouchine, Nazim and Heiliger, Christian and Navab, Nassir},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={44--53},
+  year={2025},
+  organization={Springer}
+}
+</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
+      <div class="container">
+        <h1 class="title is-1 is-size-2-mobile text-white" style="font-size: 3vh;">
+          Acknowledgements
+        </h1>
+      </div>
+    </div>
+
+    <br>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Website template modified from <a href="https://www.guangzhaohe.com/canor/#">Category-Agnostic Neural Object Rigging</a>.
+              </p>
+              <p>
+                This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+              </p>
+              <p>
+                This means you are free to borrow and modify the source code of this website as long as you link back to the <a href="https://nerfies.github.io/">NeRFies</a> page in the footer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    </div>
+
+    <script src="./project_page/script.js"></script>
+
+    <!-- Default Statcounter code for canor
+    https://guangzhaohe.com/canor -->
+    <script type="text/javascript">
+      var sc_project=13141336; 
+      var sc_invisible=1; 
+      var sc_security="21e913a9"; 
+      </script>
+      <script type="text/javascript" src="./project_page/counter.js" async=""></script>
+      <noscript><div class="statcounter"><a title="Web Analytics
+      Made Easy - Statcounter" href="https://statcounter.com/"
+      target="_blank"><img class="statcounter"
+      src="https://c.statcounter.com/13141336/0/21e913a9/1/"
+      alt="Web Analytics Made Easy - Statcounter"
+      referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+      <!-- End of Statcounter Code -->
+
+
+
+
+</div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

@@ -72,41 +72,57 @@
 
       <div class="overlay"></div>
 
+      <!-- Desktop Top Bar -->
       <div id="top-bar" class="hero-head is-hidden-touch" style="position: fixed; top: 0px; right: 0px; z-index: 1000; opacity: 1; pointer-events: auto; transition: opacity 0.3s;">
         <header class="navbar is-hidden-touch">
           <div class="container is-size-5" style="margin-right:10px;">
             <div class="navbar-menu">
               <div class="navbar-end">
 
-                <a class="navbar-item pl-4 pr-4" href="https://papers.miccai.org/miccai-2025/paper/4699_paper.pdf" style="font-size: 1.4vw;">
+                <a class="navbar-item pl-4 pr-4" href="https://papers.miccai.org/miccai-2025/paper/4699_paper.pdf" style="font-size: clamp(0.8rem, 1.4vw, 1.2rem);">
                   <!--- TODO: add the icons again later --->
                   <!-- <i class="ti ti-file" style="margin-right: 0.3vw;"></i> -->
                   <span class="myfont">Paper</span>
                 </a>
 
-                <!-- <a class="navbar-item pl-4 pr-4" href="https://arxiv.org/abs/2505.20283v1" style="font-size: 1.4vw;">
-                  <i class="ti ti-link" style="margin-right: 0.3vw;"></i>
-                  <span class="myfont">arXiv</span>
-                </a> -->
-
                 <!-- point to current website, code is not available yet-->
-                <a class="navbar-item pl-4 pr-4" href="#" style="font-size: 1.4vw;">
+                <a class="navbar-item pl-4 pr-4" href="#" style="font-size: clamp(0.8rem, 1.4vw, 1.2rem);">
                   <!--- TODO: add the icons again later --->
                   <!-- <i class="ti ti-code" style="margin-right: 0.3vw;;"></i> -->
                   <span class="myfont">Code (Coming soon)</span>
                 </a>
 
                 <!-- point to current website, data is not available yet-->
-                <a class="navbar-item pl-4 pr-4" href="#" style="font-size: 1.4vw;">
+                <a class="navbar-item pl-4 pr-4" href="#" style="font-size: clamp(0.8rem, 1.4vw, 1.2rem);">
                   <!--- TODO: add the icons again later --->
                   <!-- <i class="ti ti-code" style="margin-right: 0.3vw;;"></i> -->
                   <span class="myfont">Data (Coming soon)</span>
                 </a>
 
-                <!-- <a class="navbar-item pl-4 pr-4" href="https://www.guangzhaohe.com/canor/assets/videos/teaser_video_slide.mp4" style="font-size: 1.4vw;">
-                  <i class="ti ti-video" style="margin-right: 0.3vw;"></i>
-                  <span class="myfont">Video</span>
-                </a> -->
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!-- Mobile Top Bar -->
+      <div id="mobile-top-bar" class="hero-head is-hidden-desktop" style="position: fixed; top: 0px; right: 0px; z-index: 1000; opacity: 1; pointer-events: auto; transition: opacity 0.3s; background: rgba(0,0,0,0.8); width: 100%;">
+        <header class="navbar is-hidden-desktop">
+          <div class="container" style="padding: 0.5rem;">
+            <div class="navbar-menu">
+              <div class="navbar-end" style="flex-wrap: wrap; gap: 0.5rem;">
+
+                <a class="navbar-item" href="https://papers.miccai.org/miccai-2025/paper/4699_paper.pdf" style="font-size: 0.7rem; padding: 0.3rem 0.5rem;">
+                  <span class="myfont">Paper</span>
+                </a>
+
+                <a class="navbar-item" href="#" style="font-size: 0.7rem; padding: 0.3rem 0.5rem;">
+                  <span class="myfont">Code</span>
+                </a>
+
+                <a class="navbar-item" href="#" style="font-size: 0.7rem; padding: 0.3rem 0.5rem;">
+                  <span class="myfont">Data</span>
+                </a>
 
               </div>
             </div>
@@ -131,7 +147,7 @@
             <span style="white-space: nowrap;">Neural Object Rigging</span>
           </h1> -->
           
-          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 7vw; line-height: 1.1; text-align: center; width: 100%; max-width: 100%;">
+          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; text-align: center; width: 100%; max-width: 100%;">
             <div style="display: inline-block;">
               <span style="
                 background: linear-gradient(90deg, #ff6ec4, #7873f5);
@@ -146,10 +162,10 @@
             </div>
           </h1>
 
-          <h1 class="subtitle is-1 is-size-4-mobile publication-title myfont" style="padding-top: 5vh; font-size: 2.5vw;">
+          <h1 class="subtitle is-1 is-size-4-mobile publication-title myfont" style="padding-top: 2rem; font-size: clamp(1.2rem, 2.5vw, 2rem);">
             MICCAI 2025
           </h1>
-          <h1 class="is-2 is-size-4-mobile" style="font-size: 1.5vw; opacity: 100%;">
+          <h1 class="is-2 is-size-4-mobile" style="font-size: clamp(0.8rem, 1.5vw, 1.2rem); opacity: 100%;">
             <span class="myfont">
               <a href="https://scholar.google.com/citations?user=YHRYsjAAAAAJ&hl=en">Maximilian Fehrentz<sup class="is-size-6-mobile">1,2</sup></a>, 
             </span> 
@@ -169,7 +185,7 @@
               <a href="https://scholar.google.com/citations?user=kzoVUPYAAAAJ&hl=en">Nassir Navab<sup class="is-size-6-mobile">1</sup></a>
             </span>
           </h1>
-          <h1 class="is-5 is-size-5-mobile myfont" style="font-size: 1vw; opacity: 100%;">
+          <h1 class="is-5 is-size-5-mobile myfont" style="font-size: clamp(0.6rem, 1vw, 0.9rem); opacity: 100%;">
             <sup class="is-size-6-mobile">1</sup>Computer Aided Medical Procedures, TU Munich, Munich, Germany, <br>
             <sup class="is-size-6-mobile">2</sup>Department of General, Visceral, and Transplantation Surgery, Hospital of the LMU Munich, Ludwig-Maximilians-Universität (LMU), Munich, Germany, <br>
             <sup class="is-size-6-mobile">3</sup>Harvard Medical School, Brigham and Women's Hospital, Boston, MA, USA
@@ -190,7 +206,7 @@
       </div> -->
 
       <div id="menu-footer" class="hero-foot is-hidden-mobile myfont" style="position: fixed; bottom: 0px; left: 0px; width: 100%; z-index: 10; opacity: 1; pointer-events: auto; transition: opacity 0.3s;">
-        <nav class="tabs is-boxed is-fullwidth is-size-5" style="font-size: 2vw">
+        <nav class="tabs is-boxed is-fullwidth is-size-5" style="font-size: clamp(0.8rem, 2vw, 1.2rem)">
           <ul>
             <li><a href="#cover">Cover</a></li>
             <li><a href="#intro">Introduction</a></li>
@@ -201,15 +217,28 @@
         </nav>
       </div>
 
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hero-foot is-hidden-desktop myfont" style="position: fixed; bottom: 0px; left: 0px; width: 100%; z-index: 10; opacity: 1; pointer-events: auto; transition: opacity 0.3s; background: rgba(0,0,0,0.8);">
+        <nav class="tabs is-boxed is-fullwidth" style="font-size: 0.8rem;">
+          <ul>
+            <li><a href="#cover">Cover</a></li>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#method">Method</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#miscellaneous">Misc</a></li>
+          </ul>
+        </nav>
+      </div>
+
     </div>
 
     <!-- For mobile devices -->
-    <!-- <div class="section hero hero-cover-touch is-hidden-desktop is-link is-fullheight video" style="overflow: hidden; position:relative;">
+    <div class="section hero hero-cover-touch is-hidden-desktop is-link is-fullheight video" style="overflow: hidden; position:relative; background-color: black;" id="cover-mobile">
 
       <div class="hero-video is-inline-block-mobile"
-      style="height: 172.28571428vw; width: 100%; min-width: 100%;min-height: 56.25vw;">
+      style="height: 100%; width: 100%; min-width: 100%; min-height: 100%;">
         <video playsinline autoplay muted loop>
-          <source src="https://chen-geng.com/rose4d/static/videos/teaser-mobile-small.mp4" type="video/mp4">
+          <source src="project_page/interaction_ct.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -217,42 +246,54 @@
 
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 7rem;">
-            Category-Agnostic <br> Neural Object Rigging
+          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 2.5rem; line-height: 1.2;">
+            <div style="display: inline-block;">
+              <span style="
+                background: linear-gradient(90deg, #ff6ec4, #7873f5);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;
+                font-size: 0.8em;
+                padding-bottom: 0.1em;">
+                BridgeSplat:
+              </span><br>
+              <span style="font-size: 0.4em; line-height: 1.3;">Bidirectionally Coupled CT and Non-rigid Gaussian Splatting for Deformable Intraoperative Surgical Navigation</span>
+            </div>
           </h1>
-          <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 2rem;">
-            CVPR 2025
+          <h1 class="subtitle is-1 publication-title is-size-4-mobile myfont" style="font-size: 1.2rem; padding-top: 2vh;">
+            MICCAI 2025
           </h1>
-          <h1 class="is-2 is-size-4-mobile" style="font-size: 2rem; opacity: 100%;">
+          <h1 class="is-2 is-size-4-mobile myfont" style="font-size: 0.9rem; opacity: 100%; line-height: 1.4;">
             <span>
-              <a href="https://guangzhaohe.com">Guangzhao He</a>
-              <sup>1*</sup>
-            </span>,
+              <a href="https://scholar.google.com/citations?user=YHRYsjAAAAAJ&hl=en">Maximilian Fehrentz<sup>1,2</sup></a>, 
+            </span> 
             <span>
-              <a href="https://chen-geng.com">Chen Geng</a>
-              <sup>1*</sup>
-            </span>,
+              <a href="https://scholar.google.com/citations?user=2F3RgYQAAAAJ&hl=en">Alexander Winkler<sup>2</sup></a>, 
+            </span> 
             <span>
-              <a href="https://elliottwu.com/">Shangzhe Wu</a>
-              <sup>2</sup>
-            </span>,
+              <a href="https://www.researchgate.net/profile/Thomas_Heiliger">Thomas Heiliger<sup>2</sup></a>, 
+            </span>
             <span>
-              <a href="https://www.jiajunwu.com">Jiajun Wu</a>
-              <sup>1</sup>
+              <a href="https://haouchine.com/">Nazim Haouchine<sup>3</sup></a>,
+            </span>
+            <span>
+              <a href="https://scholar.google.com/citations?user=VMdsd2cAAAAJ&hl=en">Christian Heiliger<sup>2</sup></a>,
+            </span>
+            <span>
+              <a href="https://scholar.google.com/citations?user=kzoVUPYAAAAJ&hl=en">Nassir Navab<sup>1</sup></a>
             </span>
           </h1>
-          <h1 class="is-2 is-size-4-mobile" style="font-size: 2rem; opacity: 100%;">
-            Stanford University, University of Cambridge
-          </h1>
-          <h1 class="is-2 is-size-4-mobile" style="font-size: 2rem; opacity: 100%;">
-            (* denotes equal contribution)
+          <h1 class="is-5 is-size-5-mobile myfont" style="font-size: 0.7rem; opacity: 100%; line-height: 1.3;">
+            <sup>1</sup>Computer Aided Medical Procedures, TU Munich, Munich, Germany, <br>
+            <sup>2</sup>Department of General, Visceral, and Transplantation Surgery, Hospital of the LMU Munich, Ludwig-Maximilians-Universität (LMU), Munich, Germany, <br>
+            <sup>3</sup>Harvard Medical School, Brigham and Women's Hospital, Boston, MA, USA
           </h1>
         </div>
       </div>
 
       </div>
 
-    </div> -->
+    </div>
 
     <!-- </div> -->
 
@@ -261,7 +302,7 @@
       <!-- Title -->
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
         <div class="container">
-          <h1 class="title is-size-1-mobile text-white" style="font-size: 3vw;">
+          <h1 class="title is-size-1-mobile text-white" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">
             Introduction
           </h1>
         </div>
@@ -269,15 +310,15 @@
 
       <br>
 
-      <div class="content is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+      <div class="content is-size-6-mobile" style="font-size: clamp(0.9rem, 1.3vw, 1.1rem); width: 90%; max-width: 800px; text-align: center; margin: 0 auto;">
         Currently, there are no (deformable) navigation systems for visceral surgery. Rigid registration is not sufficient for navigation in highly non-rigid scenes. Therefore, we introduce a method using an initial rigid registration and intraoperative monocular laparoscopic video to deform a preoperative CT during surgery.
         <!-- In this work, we study the problem of modeling and understanding the <strong style="color: rgb(60, 218, 189); font-weight: bold;">structure of motion</strong> for <strong style="color: rgb(60, 218, 189); font-weight: bold;">arbitrary categories</strong> of deformable objects without prior knowledge. 
         Due to the inherent low-dimensionality of motion structures, we learn to discover a low-dimensional pose space for dynamic objects by encoding them into a set of blobs. 
         This representation captures interpretable structures for a diverse range of object categories, enabling intuitive object pose manipulation through explicit blob editing.  -->
       </div>
 
-      <div style="text-align: center; margin-top: 0vh;">
-        <img src="./project_page/MICCAI 25 Bridgesplat.png" alt="Method Image" style="max-width: 80%; height: auto; filter: brightness(90%);">
+      <div style="text-align: center; margin-top: 2rem;">
+        <img src="./project_page/MICCAI 25 Bridgesplat.png" alt="Method Image" style="max-width: min(90%, 800px); width: 100%; height: auto; filter: brightness(90%);">
       </div>
     </div>
 
@@ -288,19 +329,19 @@
       <!-- Title -->
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
         <div class="container">
-          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: 3vw;">
+          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">
             Method
           </h1>
         </div>
       </div>
 
       <br>
-      <div class="content is-6 is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+      <div class="content is-6 is-size-6-mobile" style="font-size: clamp(0.9rem, 1.3vw, 1.1rem); width: 90%; max-width: 800px; text-align: center; margin: 0 auto;">
         We initialize 3D Gaussians by rigging them onto the registered mesh, extracted from the preoperative CT. Given the first camera pose, we identify the visible Gaussians, derive the visible vertices, and subsample them to initialize a sparse deformation field. For all consecutive frames, we optimize for the mesh vertices, the deformation vectors, and the appearance properties of the 3D Gaussians. Deformations are propagated to the CT.
       </div>
 
-      <div style="text-align: center; margin-top: 0vh;">
-        <img src="./project_page/miccai25_pipeline.png" alt="Method Overview Image" style="max-width: 80%; height: auto; filter: brightness(90%);">
+      <div style="text-align: center; margin-top: 2rem;">
+        <img src="./project_page/miccai25_pipeline.png" alt="Method Overview Image" style="max-width: min(90%, 800px); width: 100%; height: auto; filter: brightness(90%);">
       </div>
     </div>
 
@@ -310,7 +351,7 @@
       <!-- Title -->
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
         <div class="container">
-          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: 3vw;">
+          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">
             Results
           </h1>
         </div>
@@ -318,13 +359,13 @@
 
       <br>
 
-      <div class="content is-6 is-size-6-mobile" style="font-size: 1.3vw; width: 80%; text-align: center;">
+      <div class="content is-6 is-size-6-mobile" style="font-size: clamp(0.9rem, 1.3vw, 1.1rem); width: 90%; max-width: 800px; text-align: center; margin: 0 auto;">
         Top left is the monocular input video from the laparoscope, top right are the 4D Gaussians. Bottom shows the deforming CT.
       </div>
 
       <!-- Insert mp4 video here-->
-      <div style="text-align: center; margin-top: 0vh;">
-        <video src="./project_page/input+splat+ct_clinical.mp4" controls autoplay muted loop style="max-width: 40%; height: auto; filter: brightness(90%);">
+      <div style="text-align: center; margin-top: 2rem;">
+        <video src="./project_page/input+splat+ct_clinical.mp4" controls autoplay muted loop style="max-width: min(90%, 600px); width: 100%; height: auto; filter: brightness(90%);">
         </video>
       </div>
       
@@ -346,7 +387,7 @@
       <!-- Title -->
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
         <div class="container">
-          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: 3vw;">
+          <h1 class="title is-1 is-size-1-mobile text-white" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">
             Miscellaneous
           </h1>
         </div>
@@ -357,7 +398,7 @@
 
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
       <div class="container">
-        <h1 class="title is-1 is-hidden-touch text-white width: 90%;" style="font-size: 3vh;">
+        <h1 class="title is-1 is-hidden-touch text-white width: 90%;" style="font-size: clamp(1.2rem, 3vh, 1.8rem);">
           Bibtex
         </h1>
       </div>
@@ -398,7 +439,7 @@
 
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 10vh;">
       <div class="container">
-        <h1 class="title is-1 is-size-2-mobile text-white" style="font-size: 3vh;">
+        <h1 class="title is-1 is-size-2-mobile text-white" style="font-size: clamp(1.2rem, 3vh, 1.8rem);">
           Acknowledgements
         </h1>
       </div>

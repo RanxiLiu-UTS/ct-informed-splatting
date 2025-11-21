@@ -23,13 +23,19 @@ Official implementation of **BridgeSplat** (MICCAI 2025).
 
 ### Setup
 
-1. **Create conda environment:**
+1. **Clone the repository recursively:**
+```bash
+git clone --recursive https://github.com/maxfehrentz/ct-informed-splatting.git
+cd ct-informed-splatting
+```
+
+2. **Create conda environment:**
 ```bash
 conda env create -f environment.yaml
 conda activate bridgesplat
 ```
 
-2. **Install submodules:**
+3. **Install submodules:**
 ```bash
 # Gaussian Rasterization
 cd src/submodules/gaussian-rasterization
@@ -81,3 +87,6 @@ If you find this work useful, please cite:
 ## 📧 Contact
 
 For questions, please open an issue or contact [maximilian.fehrentz@tum.de](mailto:maximilian.fehrentz@tum.de).
+
+## Acknowledgement
+We are building on the code of ["Online 3D reconstruction and dense tracking in endoscopic videos"](https://github.com/mhayoz/online_endo_track) (MICCAI 2024).

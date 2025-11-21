@@ -83,16 +83,16 @@ class SceneOptimizer():
             # Preprocesses mesh in place; dataset is relevant as different datasets have different mesh coordinate system conventions
             preprocess_mesh(self.mesh, dataset=self.cfg['dataset'])
 
-        # Initialize Depth Anything V2 model
-        model_configs = {
-            'vits': {'encoder': 'vits', 'features': 64, 'out_channels': [48, 96, 192, 384]},
-            'vitb': {'encoder': 'vitb', 'features': 128, 'out_channels': [96, 192, 384, 768]},
-            'vitl': {'encoder': 'vitl', 'features': 256, 'out_channels': [256, 512, 1024, 1024]},
-        }
-        encoder = 'vitl'
-        self.depth_anything = DepthAnythingV2(**model_configs[encoder])
-        self.depth_anything.load_state_dict(torch.load(f'Depth-Anything-V2/checkpoints/depth_anything_v2_{encoder}.pth', map_location='cpu'))
-        self.depth_anything = self.depth_anything.to(self.device).eval()
+        # # Initialize Depth Anything V2 model
+        # model_configs = {
+        #     'vits': {'encoder': 'vits', 'features': 64, 'out_channels': [48, 96, 192, 384]},
+        #     'vitb': {'encoder': 'vitb', 'features': 128, 'out_channels': [96, 192, 384, 768]},
+        #     'vitl': {'encoder': 'vitl', 'features': 256, 'out_channels': [256, 512, 1024, 1024]},
+        # }
+        # encoder = 'vitl'
+        # self.depth_anything = DepthAnythingV2(**model_configs[encoder])
+        # self.depth_anything.load_state_dict(torch.load(f'Depth-Anything-V2/checkpoints/depth_anything_v2_{encoder}.pth', map_location='cpu'))
+        # self.depth_anything = self.depth_anything.to(self.device).eval()
 
         # Initialize tensorboard writer
         self.writer = SummaryWriter(os.path.join(self.output, 'tensorboard'))
@@ -238,21 +238,24 @@ class SceneOptimizer():
                 if gt_color_r is not None:
                     gt_depth, flow_valid = get_depth_from_raft(self.raft, gt_color, gt_color_r, self.baseline)
                 else:
-                    # Reversing preprocessing
-                    raw_gt_color = gt_color.squeeze().cpu().numpy() * 255
-                    raw_gt_color = raw_gt_color.astype(np.uint8)
-                    raw_gt_color = cv2.cvtColor(raw_gt_color, cv2.COLOR_RGB2BGR)
+                    # # Reversing preprocessing
+                    # raw_gt_color = gt_color.squeeze().cpu().numpy() * 255
+                    # raw_gt_color = raw_gt_color.astype(np.uint8)
+                    # raw_gt_color = cv2.cvtColor(raw_gt_color, cv2.COLOR_RGB2BGR)
 
-                    # Use Depth Anything V2 to infer depth on monocular datasets; requires raw image data as np array
-                    input_size_depth = 512
+                    # # Use Depth Anything V2 to infer depth on monocular datasets; requires raw image data as np array
+                    # input_size_depth = 512
 
-                    # Getting to relative depth
-                    gt_disparity = self.depth_anything.infer_image(raw_gt_color, input_size=input_size_depth)
-                    gt_disparity = torch.from_numpy(gt_disparity).cuda().unsqueeze(0)
-                    gt_depth = 1 / gt_disparity
+                    # # Getting to relative depth
+                    # gt_disparity = self.depth_anything.infer_image(raw_gt_color, input_size=input_size_depth)
+                    # gt_disparity = torch.from_numpy(gt_disparity).cuda().unsqueeze(0)
+                    # gt_depth = 1 / gt_disparity
 
-                    # Compute relative depth
-                    gt_depth = gt_depth / gt_depth.max()
+                    # # Compute relative depth
+                    # gt_depth = gt_depth / gt_depth.max()
+
+                    # TODO: this is not used currently
+                    gt_depth = torch.ones_like(gt_color)[0, :, :, 0]
 
             frame = ids, gt_color, gt_depth, gt_c2w, tool_mask
 

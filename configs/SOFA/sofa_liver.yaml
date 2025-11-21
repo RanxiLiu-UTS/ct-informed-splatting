@@ -8,7 +8,7 @@ cam:
   cy: 540
 
 data:
-  image_input_folder: /home/fsc/max/Data/Synthetic/liver_original_force
-  mesh: /home/fsc/max/Data/Synthetic/liver_original_force/mesh_0004.obj
-  transforms: /home/fsc/max/Data/Synthetic/liver_original_force/transforms.json
+  image_input_folder: data/Synthetic/liver_original_force
+  mesh: data/Synthetic/liver_original_force/mesh_0004.obj
+  transforms: data/Synthetic/liver_original_force/transforms.json
   output: output/SOFA/liver_original_force

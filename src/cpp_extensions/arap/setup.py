@@ -7,6 +7,11 @@ import os
 os.environ["CC"] = "gcc"
 os.environ["CXX"] = "g++"
 
+# Get conda environment path
+conda_prefix = os.environ.get('CONDA_PREFIX', '')
+# Check common Eigen locations in conda
+eigen_include = os.path.join(conda_prefix, 'include/eigen3')
+
 setup(
     # Name of the python package
     name='arap_cpp',
@@ -19,7 +24,7 @@ setup(
             extra_compile_args=[
                 '-fopenmp', 
                 '-O3',
-                '-I/usr/include/eigen3'
+                f'-I{eigen_include}'
             ],
             extra_link_args=['-fopenmp'],
         ),

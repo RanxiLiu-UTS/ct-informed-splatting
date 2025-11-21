@@ -1,0 +1,6 @@
+*slurm
+data/
+output/
+build/
+.out
+.err

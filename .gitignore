@@ -4,3 +4,19 @@ output/
 build/
 .out
 .err
+# Python cache
+__pycache__/
+*.pyc
+
+# Python packaging/build
+*.egg-info/
+build/
+dist/
+
+# Compiled extensions
+*.so
+*.pyd
+
+# IDE
+.vscode/
+.idea/

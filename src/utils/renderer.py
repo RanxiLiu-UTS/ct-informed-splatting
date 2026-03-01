@@ -117,7 +117,8 @@ def render_mesh_deformations(viewpoint_camera, mesh, deformed_mesh, registration
         opacity=0.8  # Slightly transparent to see arrows better
     )
 
-    plotter.show()
+    # plotter.show()
+    plotter.show(auto_close=False)
     image = plotter.screenshot(None, return_img=True)
     plotter.close()
     return Image.fromarray(image)
@@ -140,7 +141,8 @@ def render_mesh(viewpoint_camera, mesh, registration, scale, wireframe=False):
     plotter.camera = cam
 
     # Show the plotter
-    plotter.show()
+    # plotter.show()
+    plotter.show(auto_close=False, store_image_depth=True)
     mesh_surface = plotter.screenshot(filename=None, transparent_background=True,
                                       return_img=True)
     # - to get the depth in the right direction, pyvista returns negative depth due to right-handed coordinate system
